@@ -1,0 +1,27 @@
+.container {
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(12, 12, 12);
+}
+
+.button {
+  height: 10rem;
+  width: 25rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 2rem;
+  box-shadow: 0 0 1rem purple;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: purple;
+  border: 2px solid black;
+}

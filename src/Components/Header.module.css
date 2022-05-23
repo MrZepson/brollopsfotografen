@@ -1,0 +1,25 @@
+.header {
+  height: 6rem;
+  width: 100%;
+  background-color: rgb(49, 49, 49);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 1rem black;
+}
+
+.filler {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50%;
+}
+
+.galleryIcon {
+  width: 40%;
+}
