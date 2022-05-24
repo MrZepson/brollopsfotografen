@@ -1,0 +1,14 @@
+{
+  "name": "Bröllopsfotografen",
+  "short_name": "BF",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "../src/img/logo.svg",
+      "type": "image/svg",
+      "sizes": "192x192"
+    }
+  ]
+}

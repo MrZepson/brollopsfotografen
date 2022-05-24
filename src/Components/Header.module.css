@@ -17,9 +17,22 @@
 }
 
 .logo {
-  width: 50%;
+  height: 80%;
 }
 
 .galleryIcon {
-  width: 40%;
+  height: 70%;
+}
+
+.arrowBox {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.arrow {
+  height: 60%;
+  margin-left: 2rem;
 }
