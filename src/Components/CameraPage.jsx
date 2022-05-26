@@ -6,27 +6,28 @@ export default function CameraPage() {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if ("mediaDevices" in navigator) {
-      async function getUserMedia() {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false,
-          });
-          videoRef.current.srcObject = stream;
-        } catch (err) {
-          console.log(err);
-        }
+    const getUserMedia = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        videoRef.current.srcObject = stream;
+      } catch (err) {
+        console.log(err);
       }
-      getUserMedia();
-    }
+    };
+    getUserMedia();
   }, []);
+
+  function getPicture() {
+    return;
+  }
 
   return (
     <main className={styles.wrapper}>
-      <video className={styles.camera} src={videoRef} autoPlay></video>
+      <video className={styles.camera} ref={videoRef} autoPlay />
       <div className={styles.barBottom}>
-        <button className={styles.button}>
+        <button onClick={getPicture} className={styles.button}>
           <img
             className={styles.cameraIcon}
             src={cameraIcon}

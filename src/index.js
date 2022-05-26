@@ -12,7 +12,7 @@ root.render(
 async function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
     try {
-      await navigator.serviceWorker.register("service-worker.js");
+      await navigator.serviceWorker.register("./service-worker.js");
     } catch (error) {
       console.log("Så kan man göra, men det är fel!", error);
     }
