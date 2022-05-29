@@ -4,23 +4,31 @@ import { useRef, useEffect, useState } from "react";
 
 export default function CameraPage() {
   const [showVideo, setShowVideo] = useState(true);
+  const [imgURL, setImgURL] = useState([]);
+  const [notiPerm, setNotiPerm] = useState("");
 
   const videoRef = useRef(null);
   const photoRef = useRef(null);
 
   useEffect(() => {
-    const getUserMedia = async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-        });
-        videoRef.current.srcObject = stream;
-      } catch (err) {
-        console.log(err);
-      }
-    };
     getUserMedia();
+    getNotiPerm();
   }, []);
+
+  async function getUserMedia() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+      });
+      videoRef.current.srcObject = stream;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function getNotiPerm() {
+    Notification.requestPermission().then((perm) => setNotiPerm(perm));
+  }
 
   function getPicture() {
     const ctx = photoRef.current.getContext("2d");
@@ -32,17 +40,52 @@ export default function CameraPage() {
       photoRef.current.height
     );
     const imageData = photoRef.current.toDataURL("image/png");
-    console.log(imageData);
+    setImgURL(imageData);
     setShowVideo(!showVideo);
+  }
+
+  function closeModal() {
+    setShowVideo(!showVideo);
+  }
+
+  function saveImage() {
+    localStorage.setItem("pictures", JSON.stringify(imgURL));
+
+    createNoti();
+
+    setShowVideo(!showVideo);
+  }
+
+  function createNoti() {
+    const notification = new Notification("Picture Saved", {
+      body: "Your image is saved in localStorage!",
+    });
   }
 
   return (
     <main className={styles.wrapper}>
-      <video className={styles.camera} ref={videoRef} autoPlay />
-      <canvas
-        style={showVideo ? { display: "none" } : { display: "block" }}
-        ref={photoRef}
-      ></canvas>
+      <video
+        style={!showVideo ? { display: "none" } : { display: "block" }}
+        className={styles.camera}
+        ref={videoRef}
+        autoPlay
+      />
+      <section
+        style={showVideo ? { display: "none" } : { display: "flex" }}
+        className={styles.modalWrapper}
+      >
+        <div className={styles.modal}>
+          <canvas className={styles.picture} ref={photoRef}></canvas>
+          <div className={styles.buttonWrapper}>
+            <button onClick={saveImage} className={styles.buttonSave}>
+              S
+            </button>
+            <button onClick={closeModal} className={styles.buttonDelete}>
+              D
+            </button>
+          </div>
+        </div>
+      </section>
       <div className={styles.barBottom}>
         <button onClick={getPicture} className={styles.button}>
           <img
