@@ -1,16 +1,21 @@
 .wrapper {
-  height: calc(100vh - 6rem);
+  background-color: rgb(12, 12, 12);
+  min-height: calc(100vh - 6rem);
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+}
+
+.imageContainer {
+  display: flex;
   flex-wrap: wrap;
 }
 
-.images {
-  width: 200px;
-  height: 200px;
-  background-color: gray;
-  margin: 0 1rem;
-  margin-top: 2rem;
+.image {
+  height: 124px;
+  width: 165.5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px purple;
+  margin: 1rem auto;
 }

@@ -1,14 +1,22 @@
 import styles from "./Gallery.module.css";
-import Picture from "./Picture";
 
 export default function Gallery() {
-  const testArray = [1, 2, 3, 4, 5, 6];
+  const storage = JSON.parse(localStorage.getItem("pictures"));
 
   return (
     <main className={styles.wrapper}>
-      {testArray.map((item, index) => (
-        <Picture key={index} />
-      ))}
+      <section className={styles.imageContainer}>
+        {storage
+          ? storage.map((item) => (
+              <img
+                className={styles.image}
+                key={item.id}
+                src={item.url}
+                alt=""
+              />
+            ))
+          : ""}
+      </section>
     </main>
   );
 }

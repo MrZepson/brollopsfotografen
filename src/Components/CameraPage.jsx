@@ -49,10 +49,24 @@ export default function CameraPage() {
   }
 
   function saveImage() {
-    localStorage.setItem("pictures", JSON.stringify(imgURL));
+    const imageObject = {
+      id: imgURL.length,
+      url: imgURL,
+    };
+
+    const storageArray = [];
+
+    const storage = JSON.parse(localStorage.getItem("pictures"));
+
+    if (!storage) {
+      storageArray.push(imageObject);
+      localStorage.setItem("pictures", JSON.stringify(storageArray));
+    } else {
+      storage.push(imageObject);
+      localStorage.setItem("pictures", JSON.stringify(storage));
+    }
 
     createNoti();
-
     setShowVideo(!showVideo);
   }
 
