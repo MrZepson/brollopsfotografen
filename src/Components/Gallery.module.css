@@ -8,8 +8,12 @@
 }
 
 .imageContainer {
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 1.125rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 1rem;
+  width: 100%;
 }
 
 .image {
@@ -17,5 +21,4 @@
   width: 165.5px;
   border-radius: 5px;
   box-shadow: 0 0 15px purple;
-  margin: 1rem auto;
 }
