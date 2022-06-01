@@ -8,17 +8,10 @@
 }
 
 .imageContainer {
-  margin-top: 1.125rem;
   display: grid;
-  justify-content: center;
+  justify-content: flex-start;
   grid-template-columns: repeat(2, auto);
   grid-gap: 1rem;
   width: 100%;
-}
-
-.image {
-  height: 124px;
-  width: 165.5px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px purple;
+  margin: 1rem 1.25rem;
 }

@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styles from "./Gallery.module.css";
+import Image from "./Image";
 
 export default function Gallery() {
+  const [render, setRender] = useState(false);
   const storage = JSON.parse(localStorage.getItem("pictures"));
 
   return (
@@ -8,11 +11,10 @@ export default function Gallery() {
       <section className={styles.imageContainer}>
         {storage
           ? storage.map((item) => (
-              <img
-                className={styles.image}
+              <Image
+                render={{ render, setRender }}
                 key={item.id}
-                src={item.url}
-                alt=""
+                url={item.url}
               />
             ))
           : ""}

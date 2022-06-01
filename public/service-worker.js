@@ -31,14 +31,18 @@ self.addEventListener("fetch", async (e) => {
     );
   } else {
     console.log("Online!");
-    // const res = await updateCache(e.request);
-    // return res;
+    const res = await updateCache(e.request);
+    return res;
   }
 });
 
 async function updateCache(req) {
-  // const res = await fetch(req);
-  // const cache = await caches.open("v1");
-  // cache.put(req, res.clone());
-  // return res;
+  if (req.method === "GET") {
+    const res = await fetch(req);
+    const cache = await caches.open("v1");
+
+    cache.put(req, res.clone());
+
+    return res;
+  }
 }

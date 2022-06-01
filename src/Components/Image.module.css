@@ -1,0 +1,22 @@
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  height: 124px;
+  width: 165.5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px purple;
+}
+
+.cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  border-bottom-left-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 1.725rem;
+  width: 1.725rem;
+}

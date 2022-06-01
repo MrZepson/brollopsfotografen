@@ -71,9 +71,11 @@ export default function CameraPage() {
   }
 
   function createNoti() {
-    const notification = new Notification("Picture Saved", {
-      body: "Your image is saved in localStorage!",
-    });
+    if (notiPerm === "granted") {
+      const notification = new Notification("Picture Saved", {
+        body: "Your image is saved in localStorage!",
+      });
+    }
   }
 
   return (
