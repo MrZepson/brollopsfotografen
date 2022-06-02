@@ -90,7 +90,7 @@ export default function CameraPage() {
         style={showVideo ? { display: "none" } : { display: "flex" }}
         className={styles.modalWrapper}
       >
-        <div className={styles.modal}>
+        <section className={styles.modal}>
           <canvas className={styles.picture} ref={photoRef}></canvas>
           <div className={styles.buttonWrapper}>
             <button onClick={saveImage} className={styles.buttonSave}>
@@ -100,9 +100,9 @@ export default function CameraPage() {
               D
             </button>
           </div>
-        </div>
+        </section>
       </section>
-      <div className={styles.barBottom}>
+      <section className={styles.barBottom}>
         <button onClick={getPicture} className={styles.button}>
           <img
             className={styles.cameraIcon}
@@ -110,7 +110,7 @@ export default function CameraPage() {
             alt="Camera Icon"
           />
         </button>
-      </div>
+      </section>
     </main>
   );
 }
