@@ -25,3 +25,14 @@
   background-color: purple;
   border: 2px solid black;
 }
+
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .button {
+    width: 40%;
+  }
+}

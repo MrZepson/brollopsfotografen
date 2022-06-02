@@ -10,8 +10,15 @@
 .imageContainer {
   display: grid;
   justify-content: flex-start;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(auto-fit, minmax(165.6px, 165.5px));
   grid-gap: 1rem;
   width: 100%;
   margin: 1rem 1.25rem;
+}
+
+@media screen and (min-width: 800px) {
+  .imageContainer {
+    grid-template-columns: repeat(auto-fit, minmax(331px, 331px));
+    justify-content: center;
+  }
 }

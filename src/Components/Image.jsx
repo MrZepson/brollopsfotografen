@@ -16,7 +16,7 @@ export default function Image({ url, render }) {
       <button onClick={deleteImage} className={styles.cross}>
         X
       </button>
-      <img className={styles.image} src={url} alt="" />
+      <img className={styles.image} src={url} alt=""></img>
     </section>
   );
 }
